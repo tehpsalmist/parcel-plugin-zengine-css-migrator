@@ -1,27 +1,29 @@
-# parcel-plugin-zengine-html-migrator
+# parcel-plugin-zengine-css-migrator
 
-Parcel plugin that interpolates v1 plugin JS into v2 JS file body
+Parcel plugin that interpolates v1 plugin CSS into v2 CSS file
 
 ## Installation
 
-`npm i -d parcel-plugin-zengine-js-migrator`
+`npm i -d parcel-plugin-zengine-css-migrator`
 
 _Attention: parcel-bundler has to be installed_
 
 ## Usage
  
-1. Add this multi-line-style comment: `/* PLUGIN_JS */` to your `src/plugin.js` (probably at the bottom of that file).
-2. Ensure all of your plugin's JS lives in `plugin/plugin.js`
+1. Add this comment: `/* PLUGIN_CSS */` to your `src/plugin.css` (probably at the bottom of that file).
+2. Ensure all of your plugin's CSS lives in `plugin/plugin.css`
 3. Run parcel normally
 
 ### Example
 
-_**src/plugin.js**_
+_**src/plugin.css**_
 
-```js
-import { plugin } from './wrapper.js'
+```css
+.my-default-rule {
+  color: pink;
+}
 
-/* PLUGIN_JS */
+/* PLUGIN_CSS */
 ```
 
 _**run it**_  
@@ -29,26 +31,20 @@ _**run it**_
 
 _**output**_
 
-```js
-import { plugin } from './wrapper.js'
+```css
+.my-default-rule {
+  color: pink;
+}
 
-plugin.controller('myController', ['$scope', 'myService', function ($scope, srv) {
-  // awesome plugin code
-}])
+.title {
+  color: purple;
+}
 
-// ...lots more great code...
+.i-dont-know-what-you-named-your-css-classes {
+  display: flex;
+}
 
-plugin.register('myCoolPlugin', {
-  route: '/my-cool-plugin',
-  title: 'Useless Title',
-  icon: 'icon-puzzle',
-  interfaces: [{
-    controller: 'myController',
-    template: 'my-template',
-    type: 'fullPage',
-    order: 300,
-    topNav: true,
-    routes: ['/:page']
-  }]
-})
+.but-here-they-are {
+  display: grid; /* ooh, risky */
+}
 ```
