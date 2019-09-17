@@ -15,7 +15,7 @@ _Attention: parcel-bundler has to be installed_
 ## Usage
  
 1. Add this comment: `/* PLUGIN_CSS */` to your `src/plugin.css` (probably at the bottom of that file).
-2. Ensure all of your plugin's CSS lives in `plugin/plugin.css`
+2. Ensure all of your plugin's CSS lives in `v1-output/plugin.css`
 3. Run parcel normally
 
 ### Example
